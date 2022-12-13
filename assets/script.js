@@ -79,12 +79,18 @@ window.addEventListener("load", () => {
   for(let i = 0; i < handButtons.length; i++) {
     const button = handButtons[i];
     button.addEventListener("click", () => {
-      const randomIndex = Math.floor(Math.random() * 3);
       const yourHand = handParams[i];
+      const yourText = handTextList[i];
+
+      // 0~2のランダムな数字の取得
+      // CPUの手をランダムに決める
+      const randomIndex = Math.floor(Math.random() * 3);
       const cpuHand = handParams[randomIndex];
-      displayYourHand(yourHand);
-      displayCpuHand(cpuHand);
-      result(yourHand, cpuHand);
+      const cpuText = handTextList[randomIndex];
+
+      displayYourHand(yourHand, yourText);
+      displayCpuHand(cpuHand, cpuText);
+      result();
       navigationHandHide();
     });
   }
