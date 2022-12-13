@@ -13,21 +13,44 @@ window.addEventListener("load", () => {
   const handButtons = navigationHandList.querySelectorAll(".navigation__button");
 
   const handParams = ["rock", "scissors", "paper"];
-  const handTextList = ["グー", "チョキ", "パー"];
 
-  const displayYourHand = (param, text) => {
-    yourHandImage.src = `./assets/images/${param}.png`;
-    yourHandText.innerHTML = text;
-  };
-
-  const displayCpuHand = (param, text) => {
-    cpuHandImage.src = `./assets/images/${param}.png`;
-    cpuHandText.innerHTML = text;
+  const calcHandText = (param) => {
+    if (param === "rock") {
+      return "グー";
+    } else if (param === "scissors") {
+      return "チョキ";
+    } else {
+      return "パー";
+    }
   }
 
-  const result = () => {
+  const displayYourHand = (param) => {
+    yourHandImage.src = `./assets/images/${param}.png`;
+    yourHandText.innerHTML = calcHandText(param);
+  };
+
+  const displayCpuHand = (param) => {
+    cpuHandImage.src = `./assets/images/${param}.png`;
+    cpuHandText.innerHTML = calcHandText(param);
+  }
+
+  const calcResult = (you, cpu) => {
+    if (you === cpu) {
+      return "あいこ！";
+    } else if (
+      (you === "rock" && cpu === "scissors") ||
+      (you === "scissors" && cpu === "paper") ||
+      (you === "paper" && cpu === "rock")
+    ) {
+      return "あなたの勝ち！";
+    } else {
+      return "あなたの負け！";
+    }
+  }
+
+  const result = (you, cpu) => {
     cardTitle.innerHTML = "ぽんっ！"
-    cardResult.innerHTML = "あなたの勝ち！";
+    cardResult.innerHTML = calcResult(you, cpu);
   }
 
   const navigationHandHide = () => {
@@ -66,9 +89,11 @@ window.addEventListener("load", () => {
     const button = handButtons[i];
     button.addEventListener("click", () => {
       const randomIndex = Math.floor(Math.random() * 3);
-      displayYourHand(handParams[i], handTextList[i]);
-      displayCpuHand(handParams[randomIndex], handTextList[randomIndex]);
-      result();
+      const yourHand = handParams[i];
+      const cpuHand = handParams[randomIndex];
+      displayYourHand(yourHand);
+      displayCpuHand(cpuHand);
+      result(yourHand, cpuHand);
       navigationHandHide();
     });
   }
