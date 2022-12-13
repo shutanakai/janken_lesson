@@ -53,6 +53,8 @@ window.addEventListener("load", () => {
   const handParams = ["rock", "scissors", "paper"];
   const handTextList = ["グー", "チョキ", "パー"];
   for(let i = 0; i < handButtons.length; i++) {
+
+    // グー、チョキ、パーそれぞれのボタン
     const button = handButtons[i];
     button.addEventListener("click", () => {
       const yourHand = handParams[i];
