@@ -17,7 +17,14 @@ window.addEventListener("load", () => {
   const displayCpuHand = (image, text) => {
     cpuHandImage.src = image;
     cpuHandText.innerHTML = text;
-  }
+  };
+
+  const displayReset = () => {
+    yourHandImage.src = "./assets/images/thinking.png";
+    yourHandText.innerHTML = "かんがえちゅう...";
+    cpuHandImage.src = "./assets/images/thinking.png";
+    cpuHandText.innerHTML = "かんがえちゅう...";
+  };
 
   const result = () => {
     cardTitle.innerHTML = "ぽんっ！"
@@ -38,20 +45,6 @@ window.addEventListener("load", () => {
     cardTitle.innerHTML = "じゃんけん...";
     cardResult.innerHTML = "";
   }
-
-  const reset = () => {
-    // 出した手のところを考え中に戻す
-    yourHandImage.src = "./assets/images/thinking.png";
-    yourHandText.innerHTML = "かんがえちゅう...";
-    cpuHandImage.src = "./assets/images/thinking.png";
-    cpuHandText.innerHTML = "かんがえちゅう...";
-
-    // カードの表示のリセット
-    cardReset();
-
-    // ボタンの表示切り替え
-    navigationRestartHide();
-  };
 
   // もう一度ボタンを最初は非表示にする
   navigationRestartList.style.display = "none";
@@ -88,5 +81,16 @@ window.addEventListener("load", () => {
     navigationHandHide();
   });
 
-  document.querySelector(".navigation__button--restart").addEventListener("click", () => reset());
+  document.querySelector(".navigation__button--restart").addEventListener("click", () => {
+
+    // 出した手のところを考え中に戻す
+    displayReset();
+
+    // カードの表示のリセット
+    cardReset();
+
+    // ボタンの表示切り替え
+    navigationRestartHide();
+
+  });
 });
