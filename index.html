@@ -18,22 +18,23 @@
             <div class="cardBox cardBox--you">
               <p class="cardBox__title cardBox__title--you">あなたの手</p>
               <div class="cardBox__imgContainer">
-                <img class="cradBox__img cardBox__img--you" src="./assets/images/rock.png" alt="" />
+                <img class="cradBox__img cardBox__img--you" src="./assets/images/thinking.png" alt="" />
               </div>
-              <p class="cardBox__hand cardBox__hand--you">グー</p>
+              <p class="cardBox__hand cardBox__hand--you">考え中...</p>
             </div>
             <div class="cardBox cardBox--cpu">
               <p class="cardBox__title cardBox__title--cpu">CPUの手</p>
               <div class="cardBox__imgContainer">
-                <img class="cardBox__img cardBox__img--cpu" src="./assets/images/rock.png" alt="" />
+                <img class="cardBox__img cardBox__img--cpu" src="./assets/images/thinking.png" alt="" />
               </div>
-              <p class="cardBox__hand cardBox__hand--cpu">グー</p>
+              <p class="cardBox__hand cardBox__hand--cpu">考え中...</p>
             </div>
           </div>
+          <p class="card__result"></p>
         </div>
       </div>
       <nav class="navigation">
-        <ul class="navigation__list">
+        <ul class="navigation__list navigation__list--hands">
           <li>
             <button
               class="navigation__button navigation__button--rock"
@@ -51,7 +52,9 @@
               パー
             </button>
           </li>
-          <li class="__restart">
+        </ul>
+        <ul class="navigation__list navigation__list--restart">
+          <li>
             <button class="navigation__button navigation__button--restart">
               もう一度
             </button>
