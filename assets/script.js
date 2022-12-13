@@ -51,6 +51,7 @@ window.addEventListener("load", () => {
     // カードの表示のリセット
     cardReset();
 
+    // ボタンの表示切り替え
     navigationRestartHide();
   };
 
