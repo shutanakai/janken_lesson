@@ -50,9 +50,9 @@ window.addEventListener("load", () => {
       (you === "scissors" && cpu === "paper") ||
       (you === "paper" && cpu === "rock")
     ) {
-      return "あなたの勝ち！";
+      return "あなたのかち！";
     } else {
-      return "あなたの負け...";
+      return "あなたのまけ...";
     }
   }
 
@@ -80,7 +80,7 @@ window.addEventListener("load", () => {
     // 出した手のところを考え中に戻す
     for(let i = 0; i < handImages.length; i++) {
       handImages[i].src = "./assets/images/thinking.png";
-      handTexts[i].innerHTML = "考え中...";
+      handTexts[i].innerHTML = "かんがえちゅう...";
     }
 
     // カードの表示のリセット
