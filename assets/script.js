@@ -10,9 +10,6 @@ window.addEventListener("load", () => {
   const navigationRestartList = document.querySelector(".navigation__list--restart");
   const handButtons = navigationHandList.querySelectorAll(".navigation__button");
 
-  const handParams = ["rock", "scissors", "paper"];
-  const handTextList = ["グー", "チョキ", "パー"];
-
   const displayYourHand = (param, text) => {
     yourHandImage.src = `./assets/images/${param}.png`;
     yourHandText.innerHTML = text;
@@ -53,6 +50,8 @@ window.addEventListener("load", () => {
   // もう一度ボタンを最初は非表示にする
   navigationRestartList.style.display = "none";
 
+  const handParams = ["rock", "scissors", "paper"];
+  const handTextList = ["グー", "チョキ", "パー"];
   for(let i = 0; i < handButtons.length; i++) {
     const button = handButtons[i];
     button.addEventListener("click", () => {
