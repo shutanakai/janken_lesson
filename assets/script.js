@@ -4,8 +4,6 @@ window.addEventListener("load", () => {
   const yourHandText = document.querySelector(".cardBox__hand--you");
   const cpuHandImage = document.querySelector(".cardBox__img--cpu");
   const cpuHandText = document.querySelector(".cardBox__hand--cpu");
-  const handImages = document.querySelectorAll(".cardBox__img");
-  const handTexts = document.querySelectorAll(".cardBox__hand");
   const cardTitle = document.querySelector(".card__title");
   const cardResult = document.querySelector(".card__result");
   const navigationHandList = document.querySelector(".navigation__list--hands");
@@ -26,10 +24,10 @@ window.addEventListener("load", () => {
   };
 
   const displayReset = () => {
-    for(let i = 0; i < handImages.length; i++) {
-      handImages[i].src = "./assets/images/thinking.png";
-      handTexts[i].innerHTML = "かんがえちゅう...";
-    };
+    yourHandImage.src = `./assets/images/thinking.png`;
+    yourHandText.innerHTML = "かんがえちゅう...";
+    cpuHandImage.src = `./assets/images/thinking.png`;
+    cpuHandText.innerHTML = "かんがえちゅう...";
   };
 
   const result = () => {
