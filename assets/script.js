@@ -34,6 +34,11 @@ window.addEventListener("load", () => {
     navigationRestartList.style.display = "none";
   }
 
+  const cardReset = () => {
+    cardTitle.innerHTML = "じゃんけん...";
+    cardResult.innerHTML = "";
+  }
+
   const reset = () => {
     // 出した手のところを考え中に戻す
     yourHandImage.src = "./assets/images/thinking.png";
@@ -42,8 +47,7 @@ window.addEventListener("load", () => {
     cpuHandText.innerHTML = "考え中...";
 
     // カードの表示のリセット
-    cardTitle.innerHTML = "じゃんけん...";
-    cardResult.innerHTML = "";
+    cardReset();
 
     // ボタンの表示切り替え
     navigationRestartHide();
