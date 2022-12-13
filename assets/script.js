@@ -76,6 +76,13 @@ window.addEventListener("load", () => {
     cardResult.innerHTML = "";
   }
 
+  const play = (yourHand, cpuHand) => {
+    displayYourHand(yourHand);
+    displayCpuHand(cpuHand);
+    result(yourHand, cpuHand);
+    navigationHandHide();
+  }
+
   const reset = () => {
     // 出した手のところを考え中に戻す
     for(let i = 0; i < handImages.length; i++) {
@@ -102,10 +109,7 @@ window.addEventListener("load", () => {
       const randomIndex = Math.floor(Math.random() * 3);
       const yourHand = handParams[i];
       const cpuHand = handParams[randomIndex];
-      displayYourHand(yourHand);
-      displayCpuHand(cpuHand);
-      result(yourHand, cpuHand);
-      navigationHandHide();
+      play(yourHand, cpuHand);
     });
   }
 
