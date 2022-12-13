@@ -44,7 +44,7 @@ window.addEventListener("load", () => {
     ) {
       return "あなたの勝ち！";
     } else {
-      return "あなたの負け！";
+      return "あなたの負け...";
     }
   }
 
