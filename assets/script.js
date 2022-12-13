@@ -14,6 +14,14 @@ window.addEventListener("load", () => {
 
   const handParams = ["rock", "scissors", "paper"];
 
+  const preloadImg = () => {
+    const images = handParams.map((param) => `./assets/images/${param}.png`);
+    images.forEach((imgSrc) => {
+        const img = document.createElement('img');
+        img.src = imgSrc;
+    });
+  }
+
   const calcHandText = (param) => {
     if (param === "rock") {
       return "グー";
@@ -81,6 +89,9 @@ window.addEventListener("load", () => {
     // ボタンの表示切り替え
     navigationRestartHide();
   };
+
+  // 画像のプリロード
+  preloadImg();
 
   // もう一度ボタンを最初は非表示にする
   navigationRestartList.style.display = "none";
