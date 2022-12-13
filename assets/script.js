@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
 
     // じゃんけん後のカードの結果反映
     document.querySelector(".card__title").innerHTML = "ぽんっ！"
-    document.querySelector(".card__result").innerHTML = "あなたの勝ち！";
+    document.querySelector(".card__result").innerHTML = "あなたのかち！";
 
     // ボタンの表示切り替え
     document.querySelector(".navigation__list--hands").style.display = "none";
@@ -30,7 +30,7 @@ window.addEventListener("load", () => {
     document.querySelector(".cardBox__img--cpu").src = "./assets/images/paper.png";
     document.querySelector(".cardBox__hand--cpu").innerHTML = "パー";
     document.querySelector(".card__title").innerHTML = "ぽんっ！"
-    document.querySelector(".card__result").innerHTML = "あなたの勝ち！";
+    document.querySelector(".card__result").innerHTML = "あなたのかち！";
     document.querySelector(".navigation__list--hands").style.display = "none";
     document.querySelector(".navigation__list--restart").style.display = "flex";
   });
@@ -42,7 +42,7 @@ window.addEventListener("load", () => {
     document.querySelector(".cardBox__img--cpu").src = "./assets/images/rock.png";
     document.querySelector(".cardBox__hand--cpu").innerHTML = "グー";
     document.querySelector(".card__title").innerHTML = "ぽんっ！"
-    document.querySelector(".card__result").innerHTML = "あなたの勝ち！";
+    document.querySelector(".card__result").innerHTML = "あなたのかち！";
     document.querySelector(".navigation__list--hands").style.display = "none";
     document.querySelector(".navigation__list--restart").style.display = "flex";
   });
@@ -51,9 +51,9 @@ window.addEventListener("load", () => {
 
     // 出した手のところを考え中に戻す
     document.querySelector(".cardBox__img--you").src = "./assets/images/thinking.png";
-    document.querySelector(".cardBox__hand--you").innerHTML = "考え中...";
+    document.querySelector(".cardBox__hand--you").innerHTML = "かんがえちゅう...";
     document.querySelector(".cardBox__img--cpu").src = "./assets/images/thinking.png";
-    document.querySelector(".cardBox__hand--cpu").innerHTML = "考え中...";
+    document.querySelector(".cardBox__hand--cpu").innerHTML = "かんがえちゅう...";
 
     // カードの表示のリセット
     document.querySelector(".card__title").innerHTML = "じゃんけん...";
