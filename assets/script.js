@@ -14,6 +14,8 @@ window.addEventListener("load", () => {
 
   const handParams = ["rock", "scissors", "paper"];
 
+  let wins = 0;
+
   const preloadImg = () => {
     const images = handParams.map((param) => `./assets/images/${param}.png`);
     images.forEach((imgSrc) => {
@@ -50,8 +52,10 @@ window.addEventListener("load", () => {
       (you === "scissors" && cpu === "paper") ||
       (you === "paper" && cpu === "rock")
     ) {
+      wins += 1;
       return "あなたの勝ち！";
     } else {
+      wins = 0;
       return "あなたの負け！";
     }
   }
