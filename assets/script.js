@@ -66,8 +66,12 @@ window.addEventListener("load", () => {
     const button = handButtons[i];
     button.addEventListener("click", () => {
       const randomIndex = Math.floor(Math.random() * 3);
-      displayYourHand(handParams[i], handTextList[i]);
-      displayCpuHand(handParams[randomIndex], handTextList[randomIndex]);
+      const yourHand = handParams[i];
+      const yourText = handTextList[i];
+      const cpuHand = handParams[randomIndex];
+      const cpuText = handTextList[randomIndex];
+      displayYourHand(yourHand, yourText);
+      displayCpuHand(cpuHand, cpuText);
       result();
       navigationHandHide();
     });
