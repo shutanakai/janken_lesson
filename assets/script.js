@@ -32,7 +32,14 @@ window.addEventListener("load", () => {
   const displayCpuHand = (param) => {
     cpuHandImage.src = `./assets/images/${param}.png`;
     cpuHandText.innerHTML = calcHandText(param);
-  }
+  };
+
+  const displayReset = () => {
+    for(let i = 0; i < handImages.length; i++) {
+      handImages[i].src = "./assets/images/thinking.png";
+      handTexts[i].innerHTML = "かんがえちゅう...";
+    };
+  };
 
   const calcResult = (you, cpu) => {
     if (you === cpu) {
@@ -68,27 +75,6 @@ window.addEventListener("load", () => {
     cardResult.innerHTML = "";
   }
 
-  const play = (yourHand, cpuHand) => {
-    displayYourHand(yourHand);
-    displayCpuHand(cpuHand);
-    result(yourHand, cpuHand);
-    navigationHandHide();
-  }
-
-  const reset = () => {
-    // 出した手のところを考え中に戻す
-    for(let i = 0; i < handImages.length; i++) {
-      handImages[i].src = "./assets/images/thinking.png";
-      handTexts[i].innerHTML = "かんがえちゅう...";
-    }
-
-    // カードの表示のリセット
-    cardReset();
-
-    // ボタンの表示切り替え
-    navigationRestartHide();
-  };
-
   // もう一度ボタンを最初は非表示にする
   navigationRestartList.style.display = "none";
 
@@ -98,9 +84,23 @@ window.addEventListener("load", () => {
       const randomIndex = Math.floor(Math.random() * 3);
       const yourHand = handParams[i];
       const cpuHand = handParams[randomIndex];
-      play(yourHand, cpuHand);
+      displayYourHand(yourHand);
+      displayCpuHand(cpuHand);
+      result(yourHand, cpuHand);
+      navigationHandHide();
     });
   }
 
-  document.querySelector(".navigation__button--restart").addEventListener("click", () => reset());
+  document.querySelector(".navigation__button--restart").addEventListener("click", () => {
+
+    // 出した手のところを考え中に戻す
+    displayReset();
+
+    // カードの表示のリセット
+    cardReset();
+
+    // ボタンの表示切り替え
+    navigationRestartHide();
+
+  });
 });
