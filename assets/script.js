@@ -10,14 +10,18 @@ window.addEventListener("load", () => {
   const cardResult = document.querySelector(".card__result");
   const navigationHandList = document.querySelector(".navigation__list--hands");
   const navigationRestartList = document.querySelector(".navigation__list--restart");
+  const handButtons = navigationHandList.querySelectorAll(".navigation__button");
 
-  const displayYourHand = (image, text) => {
-    yourHandImage.src = image;
+  const handParams = ["rock", "scissors", "paper"];
+  const handTextList = ["グー", "チョキ", "パー"];
+
+  const displayYourHand = (param, text) => {
+    yourHandImage.src = `./assets/images/${param}.png`;
     yourHandText.innerHTML = text;
   };
 
-  const displayCpuHand = (image, text) => {
-    cpuHandImage.src = image;
+  const displayCpuHand = (param, text) => {
+    cpuHandImage.src = `./assets/images/${param}.png`;
     cpuHandText.innerHTML = text;
   }
 
@@ -58,37 +62,16 @@ window.addEventListener("load", () => {
   // もう一度ボタンを最初は非表示にする
   navigationRestartList.style.display = "none";
 
-  // グーを押した時
-  document.querySelector(".navigation__button--rock").addEventListener("click", () => {
-
-    // あなたの出した手
-    displayYourHand("./assets/images/rock.png", "グー");
-
-    // CPUの出した手
-    displayCpuHand("./assets/images/scissors.png", "チョキ");
-
-    // じゃんけん後のカードの結果反映
-    result();
-
-    // ボタンの表示切り替え
-    navigationHandHide();
-  });
-
-  // チョキを押した時
-  document.querySelector(".navigation__button--scissors").addEventListener("click", () => {
-    displayYourHand("./assets/images/scissors.png", "チョキ");
-    displayCpuHand("./assets/images/paper.png", "パー");
-    result();
-    navigationHandHide();
-  });
-
-  // パーを押した時
-  document.querySelector(".navigation__button--paper").addEventListener("click", () => {
-    displayYourHand("./assets/images/paper.png", "パー");
-    displayCpuHand("./assets/images/rock.png", "グー");
-    result();
-    navigationHandHide();
-  });
+  for(let i = 0; i < handButtons.length; i++) {
+    const button = handButtons[i];
+    button.addEventListener("click", () => {
+      const randomIndex = Math.floor(Math.random() * 3);
+      displayYourHand(handParams[i], handTextList[i]);
+      displayCpuHand(handParams[randomIndex], handTextList[randomIndex]);
+      result();
+      navigationHandHide();
+    });
+  }
 
   document.querySelector(".navigation__button--restart").addEventListener("click", () => reset());
 });
