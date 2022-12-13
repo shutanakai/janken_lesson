@@ -4,6 +4,8 @@ window.addEventListener("load", () => {
   const yourHandText = document.querySelector(".cardBox__hand--you");
   const cpuHandImage = document.querySelector(".cardBox__img--cpu");
   const cpuHandText = document.querySelector(".cardBox__hand--cpu");
+  const handImages = document.querySelectorAll(".cardBox__img");
+  const handTexts = document.querySelectorAll(".cardBox__hand");
   const cardTitle = document.querySelector(".card__title");
   const cardResult = document.querySelector(".card__result");
   const navigationHandList = document.querySelector(".navigation__list--hands");
@@ -24,25 +26,28 @@ window.addEventListener("load", () => {
     cardResult.innerHTML = "あなたの勝ち！";
   }
 
+  const navigationHandHide = () => {
+    navigationHandList.style.display = "none";
+    navigationRestartList.style.display = "flex";
+  };
+
+  const navigationRestartHide = () => {
+    navigationHandList.style.display = "flex";
+    navigationRestartList.style.display = "none";
+  }
+
   const reset = () => {
     // 出した手のところを考え中に戻す
-    yourHandImage.src = "./assets/images/thinking.png";
-    yourHandText.innerHTML = "考え中...";
-    cpuHandImage.src = "./assets/images/thinking.png";
-    cpuHandText.innerHTML = "考え中...";
+    for(let i = 0; i < handImages.length; i++) {
+      handImages[i].src = "./assets/images/thinking.png";
+      handTexts[i].innerHTML = "考え中...";
+    }
 
     // カードの表示のリセット
     cardTitle.innerHTML = "じゃんけん...";
     cardResult.innerHTML = "";
 
-    // ボタンの表示切り替え
-    navigationHandList.style.display = "flex";
-    navigationRestartList.style.display = "none";
-  };
-
-  const navigationHandHide = () => {
-    navigationHandList.style.display = "none";
-    navigationRestartList.style.display = "flex";
+    navigationRestartHide();
   };
 
   // もう一度ボタンを最初は非表示にする
