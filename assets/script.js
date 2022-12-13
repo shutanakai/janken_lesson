@@ -40,7 +40,7 @@ window.addEventListener("load", () => {
 
     // じゃんけん後のカードの結果反映
     cardTitle.innerHTML = "ぽんっ！"
-    cardResult.innerHTML = "あなたの勝ち！";
+    cardResult.innerHTML = "あなたのかち！";
 
     // ボタンの表示切り替え
     navigationHandList.style.display = "none";
@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
     cpuHandImage.src = "./assets/images/paper.png";
     cpuHandText.innerHTML = "パー";
     cardTitle.innerHTML = "ぽんっ！"
-    cardResult.innerHTML = "あなたの勝ち！";
+    cardResult.innerHTML = "あなたのかち！";
     navigationHandList.style.display = "none";
     navigationRestartList.style.display = "flex";
   });
@@ -66,7 +66,7 @@ window.addEventListener("load", () => {
     cpuHandImage.src = "./assets/images/rock.png";
     cpuHandText.innerHTML = "グー";
     cardTitle.innerHTML = "ぽんっ！"
-    cardResult.innerHTML = "あなたの勝ち！";
+    cardResult.innerHTML = "あなたのかち！";
     navigationHandList.style.display = "none";
     navigationRestartList.style.display = "flex";
   });
@@ -75,9 +75,9 @@ window.addEventListener("load", () => {
 
     // 出した手のところを考え中に戻す
     yourHandImage.src = "./assets/images/thinking.png";
-    yourHandText.innerHTML = "考え中...";
+    yourHandText.innerHTML = "かんがえちゅう...";
     cpuHandImage.src = "./assets/images/thinking.png";
-    cpuHandText.innerHTML = "考え中...";
+    cpuHandText.innerHTML = "かんがえちゅう...";
 
     // カードの表示のリセット
     cardTitle.innerHTML = "じゃんけん...";
