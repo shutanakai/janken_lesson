@@ -51,7 +51,9 @@ window.addEventListener("load", () => {
 
     // 出した手のところを考え中に戻す
     document.querySelector(".cardBox__img--you").src = "./assets/images/thinking.png";
+    document.querySelector(".cardBox__hand--you").innerHTML = "考え中...";
     document.querySelector(".cardBox__img--cpu").src = "./assets/images/thinking.png";
+    document.querySelector(".cardBox__hand--cpu").innerHTML = "考え中...";
 
     // カードの表示のリセット
     document.querySelector(".card__title").innerHTML = "じゃんけん...";
