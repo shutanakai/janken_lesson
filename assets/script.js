@@ -24,6 +24,16 @@ window.addEventListener("load", () => {
     cardResult.innerHTML = "あなたの勝ち！";
   }
 
+  const navigationHandHide = () => {
+    navigationHandList.style.display = "none";
+    navigationRestartList.style.display = "flex";
+  };
+
+  const navigationRestartHide = () => {
+    navigationHandList.style.display = "flex";
+    navigationRestartList.style.display = "none";
+  }
+
   const reset = () => {
     // 出した手のところを考え中に戻す
     yourHandImage.src = "./assets/images/thinking.png";
@@ -36,13 +46,7 @@ window.addEventListener("load", () => {
     cardResult.innerHTML = "";
 
     // ボタンの表示切り替え
-    navigationHandList.style.display = "flex";
-    navigationRestartList.style.display = "none";
-  };
-
-  const navigationHandHide = () => {
-    navigationHandList.style.display = "none";
-    navigationRestartList.style.display = "flex";
+    navigationRestartHide();
   };
 
   // もう一度ボタンを最初は非表示にする
