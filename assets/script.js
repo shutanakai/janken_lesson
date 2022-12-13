@@ -9,13 +9,13 @@ window.addEventListener("load", () => {
   const navigationHandList = document.querySelector(".navigation__list--hands");
   const navigationRestartList = document.querySelector(".navigation__list--restart");
 
-  const displayYourHand = (image, text) => {
-    yourHandImage.src = image;
+  const displayYourHand = (param, text) => {
+    yourHandImage.src = `./assets/images/${param}.png`;
     yourHandText.innerHTML = text;
   };
 
-  const displayCpuHand = (image, text) => {
-    cpuHandImage.src = image;
+  const displayCpuHand = (param, text) => {
+    cpuHandImage.src = `./assets/images/${param}.png`;
     cpuHandText.innerHTML = text;
   };
 
@@ -53,10 +53,10 @@ window.addEventListener("load", () => {
   document.querySelector(".navigation__button--rock").addEventListener("click", () => {
 
     // あなたの出した手
-    displayYourHand("./assets/images/rock.png", "グー");
+    displayYourHand("rock", "グー");
 
     // CPUの出した手
-    displayCpuHand("./assets/images/scissors.png", "チョキ");
+    displayCpuHand("scissors", "チョキ");
 
     // じゃんけん後のカードの結果反映
     result();
@@ -67,16 +67,16 @@ window.addEventListener("load", () => {
 
   // チョキを押した時
   document.querySelector(".navigation__button--scissors").addEventListener("click", () => {
-    displayYourHand("./assets/images/scissors.png", "チョキ");
-    displayCpuHand("./assets/images/paper.png", "パー");
+    displayYourHand("scissors", "チョキ");
+    displayCpuHand("paper", "パー");
     result();
     navigationHandHide();
   });
 
   // パーを押した時
   document.querySelector(".navigation__button--paper").addEventListener("click", () => {
-    displayYourHand("./assets/images/paper.png", "パー");
-    displayCpuHand("./assets/images/rock.png", "グー");
+    displayYourHand("paper", "パー");
+    displayCpuHand("rock", "グー");
     result();
     navigationHandHide();
   });
