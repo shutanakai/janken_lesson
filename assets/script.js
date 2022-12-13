@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
 
   const result = () => {
     cardTitle.innerHTML = "ぽんっ！"
-    cardResult.innerHTML = "あなたの勝ち！";
+    cardResult.innerHTML = "あなたのかち！";
   }
 
   const navigationHandHide = () => {
@@ -49,7 +49,7 @@ window.addEventListener("load", () => {
     // 出した手のところを考え中に戻す
     for(let i = 0; i < handImages.length; i++) {
       handImages[i].src = "./assets/images/thinking.png";
-      handTexts[i].innerHTML = "考え中...";
+      handTexts[i].innerHTML = "かんがえちゅう...";
     }
 
     // カードの表示のリセット
