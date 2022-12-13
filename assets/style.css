@@ -74,6 +74,7 @@ body {
 
 .cardBox {
   width: 50%;
+  height: 100%;
   text-align: center;
 }
 
@@ -88,6 +89,11 @@ body {
 
 .cardBox__title--cpu {
   color:rgb(243, 16, 103);
+}
+
+.cardBox__thinking {
+  font-size: 20rem;
+  height: 100%;
 }
 
 .cardBox__imgContainer {
@@ -113,6 +119,17 @@ body {
   .card__title {
     margin-bottom: 20px;
     font-size: 4rem;
+  }
+}
+
+.card__result {
+  margin-top: 30px;
+  font-size: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .card__result {
+    font-size: 6rem;
   }
 }
 
