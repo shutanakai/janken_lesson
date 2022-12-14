@@ -30,23 +30,19 @@ window.addEventListener("load", () => {
     cpuHandText.innerHTML = "かんがえちゅう...";
   };
 
-  const calcResult = (you, cpu) => {
+  const result = (you, cpu) => {
+    cardTitle.innerHTML = "ぽんっ！";
     if (you === cpu) {
-      return "あいこ！";
+      cardResult.innerHTML = "あいこ！";
     } else if (
       (you === "rock" && cpu === "scissors") ||
       (you === "scissors" && cpu === "paper") ||
       (you === "paper" && cpu === "rock")
     ) {
-      return "あなたのかち！";
+      cardResult.innerHTML = "あなたのかち！";
     } else {
-      return "あなたのまけ...";
+      cardResult.innerHTML = "あなたのまけ...";
     }
-  }
-
-  const result = (you, cpu) => {
-    cardTitle.innerHTML = "ぽんっ！"
-    cardResult.innerHTML = calcResult(you, cpu);
   }
 
   const navigationHandHide = () => {
