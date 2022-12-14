@@ -21,14 +21,22 @@ window.addEventListener("load", () => {
   // じゃんけんのボタンリスト
   const navigationHandList = document.querySelector(".navigation__list--hands");
 
-  // もう一度ボタンのリスト
+  // もういちどボタンのリスト
   const navigationRestartList = document.querySelector(".navigation__list--restart");
+
+  // じゃんけんボタン
+  const rockButton = document.querySelector(".navigation__button--rock");
+  const scissorsButton = document.querySelector(".navigation__button--scissors");
+  const paperButton = document.querySelector(".navigation__button--paper");
+
+  // もういちどボタン
+  const restartButton = document.querySelector(".navigation__button--restart");
 
   // もう一度ボタンを最初は非表示にする
   navigationRestartList.style.display = "none";
 
   // グーを押した時
-  document.querySelector(".navigation__button--rock").addEventListener("click", () => {
+  rockButton.addEventListener("click", () => {
 
     // あなたの出した手
     yourHandImage.src = "./assets/images/rock.png";
@@ -48,7 +56,7 @@ window.addEventListener("load", () => {
   });
 
   // チョキを押した時
-  document.querySelector(".navigation__button--scissors").addEventListener("click", () => {
+  scissorsButton.addEventListener("click", () => {
     yourHandImage.src = "./assets/images/scissors.png";
     yourHandText.innerHTML = "チョキ";
     cpuHandImage.src = "./assets/images/paper.png";
@@ -60,7 +68,7 @@ window.addEventListener("load", () => {
   });
 
   // パーを押した時
-  document.querySelector(".navigation__button--paper").addEventListener("click", () => {
+  paperButton.addEventListener("click", () => {
     yourHandImage.src = "./assets/images/paper.png";
     yourHandText.innerHTML = "パー";
     cpuHandImage.src = "./assets/images/rock.png";
@@ -71,7 +79,7 @@ window.addEventListener("load", () => {
     navigationRestartList.style.display = "flex";
   });
 
-  document.querySelector(".navigation__button--restart").addEventListener("click", () => {
+  restartButton.addEventListener("click", () => {
 
     // 出した手のところを考え中に戻す
     yourHandImage.src = "./assets/images/thinking.png";
