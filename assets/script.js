@@ -13,7 +13,6 @@ window.addEventListener("load", () => {
   const paperButton = document.querySelector(".navigation__button--paper");
   const restartButton = document.querySelector(".navigation__button--restart");
 
-
   const displayYourHand = (param, text) => {
     yourHandImage.src = `./assets/images/${param}.png`;
     yourHandText.innerHTML = text;
