@@ -8,7 +8,10 @@ window.addEventListener("load", () => {
   const cardResult = document.querySelector(".card__result");
   const navigationHandList = document.querySelector(".navigation__list--hands");
   const navigationRestartList = document.querySelector(".navigation__list--restart");
-  const handButtons = navigationHandList.querySelectorAll(".navigation__button");
+  const rockButton = document.querySelector(".navigation__button--rock");
+  const scissorsButton = document.querySelector(".navigation__button--scissors");
+  const paperButton = document.querySelector(".navigation__button--paper");
+  const restartButton = document.querySelector(".navigation__button--restart");
 
   const displayYourHand = (param, text) => {
     yourHandImage.src = `./assets/images/${param}.png`;
@@ -50,15 +53,14 @@ window.addEventListener("load", () => {
   // もう一度ボタンを最初は非表示にする
   navigationRestartList.style.display = "none";
 
-  const handParams = ["rock", "scissors", "paper"];
-  const handTextList = ["グー", "チョキ", "パー"];
+  const handButtons = [rockButton, scissorsButton, paperButton];
   for(let i = 0; i < handButtons.length; i++) {
 
     // グー、チョキ、パーそれぞれのボタン
     const button = handButtons[i];
     button.addEventListener("click", () => {
-      const yourHand = handParams[i];
-      const yourText = handTextList[i];
+      const yourHand = button.dataset.hand;
+      const yourText = button.innerHTML;
 
       // 0~2のランダムな数字の取得
       // CPUの手をランダムに決める
@@ -73,7 +75,7 @@ window.addEventListener("load", () => {
     });
   }
 
-  document.querySelector(".navigation__button--restart").addEventListener("click", () => {
+  restartButton.addEventListener("click", () => {
 
     // 出した手のところを考え中に戻す
     displayReset();
