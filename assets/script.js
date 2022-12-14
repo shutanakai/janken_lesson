@@ -92,7 +92,7 @@ window.addEventListener("load", () => {
 
       displayYourHand(yourHand);
       displayCpuHand(cpuHand);
-      result();
+      result(yourHand, cpuHand);
       navigationHandHide();
     });
   }
