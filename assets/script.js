@@ -8,9 +8,10 @@ window.addEventListener("load", () => {
   const cardResult = document.querySelector(".card__result");
   const navigationHandList = document.querySelector(".navigation__list--hands");
   const navigationRestartList = document.querySelector(".navigation__list--restart");
-  const handButtons = navigationHandList.querySelectorAll(".navigation__button");
-
-  const handParams = ["rock", "scissors", "paper"];
+  const rockButton = document.querySelector(".navigation__button--rock");
+  const scissorsButton = document.querySelector(".navigation__button--scissors");
+  const paperButton = document.querySelector(".navigation__button--paper");
+  const restartButton = document.querySelector(".navigation__button--restart");
 
   const calcHandText = (param) => {
     if (param === "rock") {
@@ -76,6 +77,9 @@ window.addEventListener("load", () => {
   // もう一度ボタンを最初は非表示にする
   navigationRestartList.style.display = "none";
 
+  const handButtons = [rockButton, scissorsButton, paperButton];
+  const handParams = ["rock", "scissors", "paper"];
+
   for(let i = 0; i < handButtons.length; i++) {
     const button = handButtons[i];
     button.addEventListener("click", () => {
@@ -93,7 +97,7 @@ window.addEventListener("load", () => {
     });
   }
 
-  document.querySelector(".navigation__button--restart").addEventListener("click", () => {
+  restartButton.addEventListener("click", () => {
 
     // 出した手のところを考え中に戻す
     displayReset();
