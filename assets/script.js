@@ -55,20 +55,20 @@ window.addEventListener("load", () => {
 
   const handButtons = [rockButton, scissorsButton, paperButton];
   const handParams = ["rock", "scissors", "paper"];
-  const handTextList = ["グー", "チョキ", "パー"];
+  const handTexts = ["グー", "チョキ", "パー"];
   for(let i = 0; i < handButtons.length; i++) {
 
     // グー、チョキ、パーそれぞれのボタン
     const button = handButtons[i];
     button.addEventListener("click", () => {
       const yourHand = handParams[i];
-      const yourText = handTextList[i];
+      const yourText = handTexts[i];
 
       // 0~2のランダムな数字の取得
       // CPUの手をランダムに決める
       const randomIndex = Math.floor(Math.random() * 3);
       const cpuHand = handParams[randomIndex];
-      const cpuText = handTextList[randomIndex];
+      const cpuText = handTexts[randomIndex];
 
       displayYourHand(yourHand, yourText);
       displayCpuHand(cpuHand, cpuText);
