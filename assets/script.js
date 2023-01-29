@@ -1,8 +1,5 @@
 window.addEventListener("load", () => {
 
-  // もう一度ボタンを最初は非表示にする
-  document.querySelector(".navigation__list--restart").style.display = "none";
-
   // グーを押した時
   document.querySelector(".navigation__button--rock").addEventListener("click", () => {
 
@@ -17,10 +14,6 @@ window.addEventListener("load", () => {
     // じゃんけん後のカードの結果反映
     document.querySelector(".card__title").innerHTML = "ぽんっ！"
     document.querySelector(".card__result").innerHTML = "あなたのかち！";
-
-    // ボタンの表示切り替え
-    document.querySelector(".navigation__list--hands").style.display = "none";
-    document.querySelector(".navigation__list--restart").style.display = "flex";
   });
 
   // チョキを押した時
@@ -31,8 +24,6 @@ window.addEventListener("load", () => {
     document.querySelector(".cardBox__hand--cpu").innerHTML = "パー";
     document.querySelector(".card__title").innerHTML = "ぽんっ！"
     document.querySelector(".card__result").innerHTML = "あなたのかち！";
-    document.querySelector(".navigation__list--hands").style.display = "none";
-    document.querySelector(".navigation__list--restart").style.display = "flex";
   });
 
   // パーを押した時
@@ -43,24 +34,5 @@ window.addEventListener("load", () => {
     document.querySelector(".cardBox__hand--cpu").innerHTML = "グー";
     document.querySelector(".card__title").innerHTML = "ぽんっ！"
     document.querySelector(".card__result").innerHTML = "あなたのかち！";
-    document.querySelector(".navigation__list--hands").style.display = "none";
-    document.querySelector(".navigation__list--restart").style.display = "flex";
-  });
-
-  document.querySelector(".navigation__button--restart").addEventListener("click", () => {
-
-    // 出した手のところを考え中に戻す
-    document.querySelector(".cardBox__img--you").src = "./assets/images/thinking.png";
-    document.querySelector(".cardBox__hand--you").innerHTML = "かんがえちゅう...";
-    document.querySelector(".cardBox__img--cpu").src = "./assets/images/thinking.png";
-    document.querySelector(".cardBox__hand--cpu").innerHTML = "かんがえちゅう...";
-
-    // カードの表示のリセット
-    document.querySelector(".card__title").innerHTML = "じゃんけん...";
-    document.querySelector(".card__result").innerHTML = "";
-
-    // ボタンの表示切り替え
-    document.querySelector(".navigation__list--hands").style.display = "flex";
-    document.querySelector(".navigation__list--restart").style.display = "none";
   });
 });
