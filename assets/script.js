@@ -4,12 +4,9 @@ window.addEventListener("load", () => {
   const yourHandText = document.querySelector(".cardBox__hand--you");
   const cpuHandImage = document.querySelector(".cardBox__img--cpu");
   const cpuHandText = document.querySelector(".cardBox__hand--cpu");
-  const handImages = document.querySelectorAll(".cardBox__img");
-  const handTexts = document.querySelectorAll(".cardBox__hand");
   const cardTitle = document.querySelector(".card__title");
   const cardResult = document.querySelector(".card__result");
   const navigationHandList = document.querySelector(".navigation__list--hands");
-  const navigationRestartList = document.querySelector(".navigation__list--restart");
   const handButtons = navigationHandList.querySelectorAll(".navigation__button");
 
   const handParams = ["rock", "scissors", "paper"];
@@ -61,47 +58,14 @@ window.addEventListener("load", () => {
     cardResult.innerHTML = calcResult(you, cpu);
   }
 
-  const navigationHandHide = () => {
-    navigationHandList.style.display = "none";
-    navigationRestartList.style.display = "flex";
-  };
-
-  const navigationRestartHide = () => {
-    navigationHandList.style.display = "flex";
-    navigationRestartList.style.display = "none";
-  }
-
-  const cardReset = () => {
-    cardTitle.innerHTML = "じゃんけん...";
-    cardResult.innerHTML = "";
-  }
-
   const play = (yourHand, cpuHand) => {
     displayYourHand(yourHand);
     displayCpuHand(cpuHand);
     result(yourHand, cpuHand);
-    navigationHandHide();
   }
-
-  const reset = () => {
-    // 出した手のところを考え中に戻す
-    for(let i = 0; i < handImages.length; i++) {
-      handImages[i].src = "./assets/images/thinking.png";
-      handTexts[i].innerHTML = "かんがえちゅう...";
-    }
-
-    // カードの表示のリセット
-    cardReset();
-
-    // ボタンの表示切り替え
-    navigationRestartHide();
-  };
 
   // 画像のプリロード
   preloadImg();
-
-  // もう一度ボタンを最初は非表示にする
-  navigationRestartList.style.display = "none";
 
   for(let i = 0; i < handButtons.length; i++) {
     const button = handButtons[i];
@@ -112,6 +76,4 @@ window.addEventListener("load", () => {
       play(yourHand, cpuHand);
     });
   }
-
-  document.querySelector(".navigation__button--restart").addEventListener("click", () => reset());
 });
