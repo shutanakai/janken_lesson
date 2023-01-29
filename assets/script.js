@@ -8,15 +8,9 @@ window.addEventListener("load", () => {
   const scissorsButton = document.querySelector(".navigation__button--scissors");
   const paperButton = document.querySelector(".navigation__button--paper");
 
-  const displayYourHand = (param) => {
-    yourHandImage.src = `./assets/images/${param}.png`;
-  };
-
-  const displayCpuHand = (param) => {
-    cpuHandImage.src = `./assets/images/${param}.png`;
-  };
-
-  const result = () => {
+  const result = (you, cpu) => {
+    yourHandImage.src = `./assets/images/${you}.png`;
+    cpuHandImage.src = `./assets/images/${cpu}.png`;
     cardTitle.innerHTML = "ぽんっ！"
     cardResult.innerHTML = "あなたのかち！";
   }
@@ -35,9 +29,7 @@ window.addEventListener("load", () => {
       const randomIndex = Math.floor(Math.random() * 3);
       const cpuHand = handParams[randomIndex];
 
-      displayYourHand(yourHand);
-      displayCpuHand(cpuHand);
-      result();
+      result(yourHand, cpuHand);
     });
   }
 
