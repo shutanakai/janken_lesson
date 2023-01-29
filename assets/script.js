@@ -1,23 +1,19 @@
 window.addEventListener("load", () => {
 
   const yourHandImage = document.querySelector(".cardBox__img--you");
-  const yourHandText = document.querySelector(".cardBox__hand--you");
   const cpuHandImage = document.querySelector(".cardBox__img--cpu");
-  const cpuHandText = document.querySelector(".cardBox__hand--cpu");
   const cardTitle = document.querySelector(".card__title");
   const cardResult = document.querySelector(".card__result");
   const rockButton = document.querySelector(".navigation__button--rock");
   const scissorsButton = document.querySelector(".navigation__button--scissors");
   const paperButton = document.querySelector(".navigation__button--paper");
 
-  const displayYourHand = (param, text) => {
+  const displayYourHand = (param) => {
     yourHandImage.src = `./assets/images/${param}.png`;
-    yourHandText.innerHTML = text;
   };
 
-  const displayCpuHand = (param, text) => {
+  const displayCpuHand = (param) => {
     cpuHandImage.src = `./assets/images/${param}.png`;
-    cpuHandText.innerHTML = text;
   };
 
   const result = () => {
@@ -29,10 +25,10 @@ window.addEventListener("load", () => {
   rockButton.addEventListener("click", () => {
 
     // あなたの出した手
-    displayYourHand("rock", "グー");
+    displayYourHand("rock");
 
     // CPUの出した手
-    displayCpuHand("scissors", "チョキ");
+    displayCpuHand("scissors");
 
     // じゃんけん後のカードの結果反映
     result();
@@ -40,15 +36,15 @@ window.addEventListener("load", () => {
 
   // チョキを押した時
   scissorsButton.addEventListener("click", () => {
-    displayYourHand("scissors", "チョキ");
-    displayCpuHand("paper", "パー");
+    displayYourHand("scissors");
+    displayCpuHand("paper");
     result();
   });
 
   // パーを押した時
   paperButton.addEventListener("click", () => {
-    displayYourHand("paper", "パー");
-    displayCpuHand("rock", "グー");
+    displayYourHand("paper");
+    displayCpuHand("rock");
     result();
   });
 
