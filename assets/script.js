@@ -18,22 +18,10 @@ window.addEventListener("load", () => {
   // カードの結果
   const cardResult = document.querySelector(".card__result");
 
-  // じゃんけんのボタンリスト
-  const navigationHandList = document.querySelector(".navigation__list--hands");
-
-  // もういちどボタンのリスト
-  const navigationRestartList = document.querySelector(".navigation__list--restart");
-
   // じゃんけんボタン
   const rockButton = document.querySelector(".navigation__button--rock");
   const scissorsButton = document.querySelector(".navigation__button--scissors");
   const paperButton = document.querySelector(".navigation__button--paper");
-
-  // もういちどボタン
-  const restartButton = document.querySelector(".navigation__button--restart");
-
-  // もう一度ボタンを最初は非表示にする
-  navigationRestartList.style.display = "none";
 
   // グーを押した時
   rockButton.addEventListener("click", () => {
@@ -49,10 +37,6 @@ window.addEventListener("load", () => {
     // じゃんけん後のカードの結果反映
     cardTitle.innerHTML = "ぽんっ！"
     cardResult.innerHTML = "あなたのかち！";
-
-    // ボタンの表示切り替え
-    navigationHandList.style.display = "none";
-    navigationRestartList.style.display = "flex";
   });
 
   // チョキを押した時
@@ -63,8 +47,6 @@ window.addEventListener("load", () => {
     cpuHandText.innerHTML = "パー";
     cardTitle.innerHTML = "ぽんっ！"
     cardResult.innerHTML = "あなたのかち！";
-    navigationHandList.style.display = "none";
-    navigationRestartList.style.display = "flex";
   });
 
   // パーを押した時
@@ -75,24 +57,6 @@ window.addEventListener("load", () => {
     cpuHandText.innerHTML = "グー";
     cardTitle.innerHTML = "ぽんっ！"
     cardResult.innerHTML = "あなたのかち！";
-    navigationHandList.style.display = "none";
-    navigationRestartList.style.display = "flex";
   });
 
-  restartButton.addEventListener("click", () => {
-
-    // 出した手のところを考え中に戻す
-    yourHandImage.src = "./assets/images/thinking.png";
-    yourHandText.innerHTML = "かんがえちゅう...";
-    cpuHandImage.src = "./assets/images/thinking.png";
-    cpuHandText.innerHTML = "かんがえちゅう...";
-
-    // カードの表示のリセット
-    cardTitle.innerHTML = "じゃんけん...";
-    cardResult.innerHTML = "";
-
-    // ボタンの表示切り替え
-    navigationHandList.style.display = "flex";
-    navigationRestartList.style.display = "none";
-  });
 });
